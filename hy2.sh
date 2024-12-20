@@ -65,8 +65,8 @@ quic:
   disablePathMTUDiscovery: false
 
 bandwidth:
-  up: 300 mbps
-  down: 300 mbps
+  up: 200 mbps
+  down: 200 mbps
 
 ignoreClientBandwidth: false
 
