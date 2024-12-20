@@ -18,7 +18,7 @@ bash <(curl -Ls https://ssa.sx/hy2)
 
 ```bash
 # or
-bash <(curl -Ls https://github.com/missuo/Hysteria2/raw/main/hy2.sh)
+bash <(curl -Ls https://github.com/SouthAlley/Hysteria2/raw/main/hy2.sh)
 ```
 
 ### 4. Enter the configuration information according to the prompts
