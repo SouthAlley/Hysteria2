@@ -55,6 +55,21 @@ acme:
     - $DOMAIN
   email: test@sharklasers.com
 
+quic:
+  initStreamReceiveWindow: 8388608 
+  maxStreamReceiveWindow: 8388608 
+  initConnReceiveWindow: 20971520 
+  maxConnReceiveWindow: 20971520 
+  maxIdleTimeout: 30s 
+  maxIncomingStreams: 1024 
+  disablePathMTUDiscovery: false
+
+bandwidth:
+  up: 300 mbps
+  down: 300 mbps
+
+ignoreClientBandwidth: false
+
 auth:
   type: password
   password: $PASSWORD
