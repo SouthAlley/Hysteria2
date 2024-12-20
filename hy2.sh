@@ -41,6 +41,8 @@ install_hysteria() {
     read -p "输入端口（默认：8443）: " PORT
     read -p "输入域名: " DOMAIN
     read -p "输入密码（默认：Hy2Best2024@）: " PASSWORD
+    read -p "服务器上传速度: " UP
+    read -p "服务器下载速度: " DOWN
 
     # Set default values if not provided by the user
     PORT=${PORT:-8443}
@@ -65,8 +67,8 @@ quic:
   disablePathMTUDiscovery: false
 
 bandwidth:
-  up: 200 mbps
-  down: 200 mbps
+  up: $UP mbps
+  down: $DOWN mbps
 
 ignoreClientBandwidth: false
 
