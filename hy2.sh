@@ -13,19 +13,19 @@
 
 show_menu() {
     echo "Hysteria 2 Installation by Vincent."
-    echo "https://github.com/missuo/Hysteria2"
+    echo "https://github.com/SouthAlley/Hysteria2"
     echo "-----------------------------------"
     echo "Choose an option:"
-    echo "1. Install Hysteria 2"
-    echo "2. Uninstall Hysteria 2"
-    echo "3. Stop Hysteria 2"
-    echo "4. Start Hysteria 2"
-    echo "5. Restart Hysteria 2"
-    echo "6. Enable auto-start at boot"
-    echo "7. Disable auto-start at boot"
-    echo "8. Update Hysteria 2"
-    echo "9. Exit"
-    read -p "Enter your choice: " CHOICE
+    echo "1. 安装 Hysteria 2"
+    echo "2. 卸载 Hysteria 2"
+    echo "3. 停止 Hysteria 2"
+    echo "4. 开启 Hysteria 2"
+    echo "5. 重启 Hysteria 2"
+    echo "6. 启用开机自动启动"
+    echo "7. 禁用开机自动启动"
+    echo "8. 更新 Hysteria 2"
+    echo "9. 退出"
+    read -p "输入你的选择: " CHOICE
 }
 
 install_hysteria() {
@@ -38,9 +38,9 @@ install_hysteria() {
     bash <(curl -fsSL https://get.hy2.sh/)
 
     # Prompt the user for inputs with default values
-    read -p "Enter the port (default: 8443): " PORT
-    read -p "Enter the domain: " DOMAIN
-    read -p "Enter the password (default: Hy2Best2024@): " PASSWORD
+    read -p "输入端口（默认：8443）: " PORT
+    read -p "输入域名: " DOMAIN
+    read -p "输入密码（默认：Hy2Best2024@）: " PASSWORD
 
     # Set default values if not provided by the user
     PORT=${PORT:-8443}
@@ -81,7 +81,7 @@ masquerade:
     rewriteHost: true
 EOF
 
-    echo "Config file created!"
+    echo "配置文件已创建！"
     # Start Hysteria 2
     systemctl start hysteria-server.service
     systemctl enable hysteria-server.service
@@ -93,13 +93,13 @@ EOF
     STATUS=$(systemctl is-active hysteria-server.service)
     if [ "$STATUS" == "active" ]; then
         clear
-        echo "Hysteria 2 started successfully!"
-        echo "Configuration details:"
-        echo "Domain: $DOMAIN"
-        echo "Port: $PORT"
-        echo "Password: $PASSWORD"
+        echo "Hysteria 2 启动成功！"
+        echo "配置详细信息:"
+        echo "域名: $DOMAIN"
+        echo "端口: $PORT"
+        echo "密码: $PASSWORD"
     else
-        echo "Failed to start Hysteria 2. Please check service status manually."
+        echo "启动 Hysteria 2 失败.请手动检查服务状态."
     fi
     echo ""
 }
@@ -111,7 +111,7 @@ uninstall_hysteria() {
     rm -f /etc/systemd/system/multi-user.target.wants/hysteria-server.service
     rm -f /etc/systemd/system/multi-user.target.wants/hysteria-server@*.service
     systemctl daemon-reload
-    echo "Hysteria 2 uninstalled!"
+    echo "Hysteria 2 已卸载！"
     echo ""
 }
 
@@ -128,6 +128,6 @@ while true; do
         7) systemctl disable hysteria-server.service ;;
         8) bash <(curl -fsSL https://get.hy2.sh/) ;;
         9) echo "Exiting..."; exit 0 ;;
-        *) echo "Invalid choice!";;
+        *) echo "选择无效！";;
     esac
 done
